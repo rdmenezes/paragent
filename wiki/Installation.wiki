@@ -221,4 +221,13 @@ CL-USER> (in-package :db)
 DB> (with-db (add-company "company name" "Adminstrator email" "administrator password" "Administrator email"))
 }}}
 
-
+===Log Rotation===
+create /etc/logrotate.d/archon and edit
+{{{
+/var/log/*-dribble {
+  daily
+  ifempty
+  copytruncate
+  compress
+}
+}}}
