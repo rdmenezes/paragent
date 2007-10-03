@@ -41,6 +41,13 @@ Third, we need to assign the Paragent agent package to computers.
 
 === Permissions ===
 
-When you are looking at your GPO object, drill down into *Computer Configuration* -> *Administrative Templates* - *Windows Components* -> *Windows Installer*. The permission in question is *Always install with elevated privileges*. This needs to be enabled. The same option needs to be set for the *User Configuration -> Administrative Templates -> Windows Components -> Windows Installer*. branch as well.
+We have run into certain situations where the agent is listed in the Add/Remove programs group (under the name *Templar*), but there are no contents in the installation directory. This is the result of insufficient privileges on the client machine to perform the installation. To make sure your permissions are correct:
+
+ # Start the Active Directory Users and Computers snap-in. To do this, click *Start*, point to *Administrative Tools*, and then click *Active Directory Users and Computers*.
+ # In the console tree, right-click your domain, and then click *Properties*.
+ # Click the *Group Policy* tab, select the Paragent Agent group policy object, and then click *Edit*.
+ # When you are looking at your GPO object, drill down into *Computer Configuration* -> *Administrative Templates* - *Windows Components* -> *Windows Installer*. The permission in question is *Always install with elevated privileges*. This needs to be enabled. The same option can also be set for the *User Configuration -> Administrative Templates -> Windows Components -> Windows Installer* branch as well.
+
+The following is a screenshot of the permission in question.
 
 http://paragent.googlecode.com/files/gpo-permissions-1.png
