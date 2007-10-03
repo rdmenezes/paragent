@@ -108,9 +108,8 @@ to get mysqld to restart on reboot properly, issue a
 ===Repository===
 {{{
 # cd /lisp
-# git clone git://archon.paragent.com/paragent.git
+# git clone git://archon.paragent.com/paragent.git repos
 }}}
-(Note: this creates a "paragent" directory. Many scripts expect to find the repository in /lisp/repos/")
 
 Alternately, download the latest code from the "Downloads" section and unzip it into the repos directory.
 
