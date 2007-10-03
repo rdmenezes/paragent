@@ -1,4 +1,6 @@
+#summary Instructions for Setting up a Paragent Server
 #labels Phase-Deploy
+
 =Paragent Installation Guide=
 
 
