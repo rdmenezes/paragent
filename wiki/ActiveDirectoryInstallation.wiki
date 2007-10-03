@@ -7,8 +7,11 @@ This is a guide for installing the Paragent agent msi on clients using Active Di
 First, we will need to create a distribution point from which client computers can download the Paragent MSI file.
 
 # Log onto your server as an administrator
+
 # Create a shared network folder where you will put the MSI file
+
 # Set permissions on the share created in the previous step so that clients will have access to the MSI file
+
 # Copy the Paragent agent MSI file to the share
 
 === Create the Group Policy Object ===
