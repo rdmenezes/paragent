@@ -1,0 +1,57 @@
+#summary A quick overview of what each component is for
+
+= Primary Applications = 
+
+== Nexus ==
+
+Nexus is the webpage which displays all information from the database to the user. Heavy emphasis is placed on keeping the interface simple and intuitive. It is written in Lisp with ucw_dev.
+
+
+== Templar ==
+
+Templar is an agent which runs on each monitored computer. It is responsible for gathering the data from the computer and relaying this information to Archon. Currently we only have Windows agent. It is written in C++, runs as a service, and primarily uses WMI to get information.
+
+
+== Archon ==
+
+Archon runs on the server, gathering information from the Templars and saving it to the database. It also pings them periodically to see if they're still online. It is written in Lisp and runs on Linux.
+
+
+= Supporting Applications =
+
+
+== Arbiter ==
+
+Arbiter exists largely to get around the per-process limit on file descriptors. Arbiter is the one that holds the actual connections to the Templars, and it relays the messages back and forth between everybody and Archon. It is written in Lisp and runs on Linux.
+
+== Dark Templar ==
+
+Dark Templar is a modified UltraVNC client which connects from the computer to our server, which then relays messages between that and Observer, allowing users to remotely control their computers from anywhere. It is written in C++.
+
+== Dark Archon ==
+
+Dark Archon is a very small and simple program which sits on our server and relays messages between Dark Templar and Observer. It is written in Lisp.
+
+== Observer ==
+
+Observer is a Java applet which runs in the browser and connects to a Dark Templar via Dark Archon, allowing the administrator remote control of a computer. It is modified from the UltraVNC applet.
+
+== Scarab ==
+
+Scarab is set as a cron job to send out weekly reports. It is written in Lisp.
+
+== Archives ==
+
+Archives checks the email account for new tickets and replies to tickets, and puts them in the database if it finds any. It is written in Lisp.
+
+
+= Dependencies =
+
+
+== db ==
+
+Db holds object mappings for all of the things we store in the database, in addition to providing a few handy functions to deal with the database. It uses clsql to talk to MySQL. Because nearly everything relies on db, we also put most of our configuration variables in here, and some commonly needed functions (such as send-email).
+
+== Psi ==
+
+Psi is the networking library used by Arbiter and Archon. It uses epoll to handle large numbers of connections.
