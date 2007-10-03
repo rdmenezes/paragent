@@ -1,4 +1,28 @@
-== Permissions ==
+= Introduction =
+
+This is a guide for installing the Paragent agent msi on clients using Active Directory's Group Policy Object (GPO) system. Microsoft has many support articles detailing Active Directory. These instructions are adapted from http://support.microsoft.com/kb/816102.
+
+=== Locating the MSI File ===
+
+First, we will need to create a distribution point from which client computers can download the Paragent MSI file.
+
+# Log onto your server as an administrator
+# Create a shared network folder where you will put the MSI file
+# Set permissions on the share created in the previous step so that clients will have access to the MSI file
+# Copy the Paragent agent MSI file to the share
+
+=== Create the Group Policy Object ===
+
+# Start the Active Directory Users and Computers snap-in. To do this, click *Start*, point to *Administrative Tools*, and then click *Active Directory Users and Computers*.
+# In the console tree, right-click your domain, and then click *Properties*.
+# Click the *Group Policy* tab, and then click *New*.
+# Type a name for this new policy (for example, Paragent Agent), and then press ENTER.
+# Click *Properties*, and then click the *Security* tab.
+# Click to clear the Apply Group Policy check box for the security groups that you want to prevent from having this policy applied.
+# Click to select the Apply Group Policy check box for the groups that you want this policy to apply to.
+# When you are finished, click OK.
+
+=== Permissions ===
 
 When you are looking at your GPO object, drill down into "Computer Configuration -> Administrative Templates -> Windows Components -> Windows Installer." The permission in question is "Always install with elevated privileges" This needs to be enabled. The same option needs to be set for the "User Configuration -> Administrative Templates -> Windows Components -> Windows Installer." branch as well.
 
