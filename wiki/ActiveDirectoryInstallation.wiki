@@ -1,0 +1,5 @@
+== Permissions ==
+
+When you are looking at your GPO object, drill down into "Computer Configuration -> Administrative Templates -> Windows Components -> Windows Installer." The permission in question is "Always install with elevated privileges" This needs to be enabled. The same option needs to be set for the "User Configuration -> Administrative Templates -> Windows Components -> Windows Installer." branch as well.
+
+http://code.google.com/p/paragent/files/gpo-permissions-1.png
