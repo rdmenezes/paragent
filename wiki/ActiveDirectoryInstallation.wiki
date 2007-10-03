@@ -1,5 +1,5 @@
 #labels Phase-Deploy
-Instruction for Deploying the Agent Using Active Directory
+Instructions for Deploying the Agent Using Active Directory
 
 = Introduction =
 
