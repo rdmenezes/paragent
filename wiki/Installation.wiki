@@ -222,6 +222,7 @@ CL-USER> (in-package :db)
 DB> (with-db (add-company "company name" "Adminstrator email" "administrator password" "Administrator email"))
 }}}
 
+
 ===Log Rotation===
 create /etc/logrotate.d/archon and edit
 {{{
@@ -232,3 +233,8 @@ create /etc/logrotate.d/archon and edit
   compress
 }
 }}}
+
+
+===Installing Templar===
+
+Download Templar.zip from the downloads section and follow the instructions in the readme.txt file contained therein.
