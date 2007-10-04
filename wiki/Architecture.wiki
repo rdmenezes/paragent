@@ -9,7 +9,7 @@ Nexus is the webpage which displays all information from the database to the use
 
 == Templar ==
 
-Templar is an agent which runs on each monitored computer. It is responsible for gathering the data from the computer and relaying this information to Archon. Currently we only have Windows agent. It is written in C++, runs as a service, and primarily uses WMI to get information.
+Templar is an agent which runs on each monitored computer. It is responsible for gathering the data from the computer and relaying this information to Archon. Currently we only have Windows agent. It is written in C++, runs as a service, and primarily uses WMI to get information. Heavy emphasis here is placed on small program size and memory footprint. Ideally, the user never notices it's there.
 
 
 == Archon ==
