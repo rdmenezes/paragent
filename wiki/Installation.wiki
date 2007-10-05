@@ -47,10 +47,6 @@ CVS password: [return]
 # emacs -nw customize-target-features.lisp
 }}}
 
-Get and apply the epoll patch
-{{{
-# wget http://paragent.com/downloads/lisp/serve-event-epoll.patch
-}}}
 
 create a file called customize-target-features.lisp with the following code:
 {{{
