@@ -3,6 +3,7 @@
 
 =Paragent Installation Guide=
 
+*NOTE* these instructions are for installing from source code. If you download the easy installer, this whole process is automated.
 
 ===OS===
 
