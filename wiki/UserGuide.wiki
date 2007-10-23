@@ -14,7 +14,8 @@ Paragent.com uses a small agent running on each monitored computer to collect in
 == NAT and Firewall Configuration ==
 
 In most cases, the Paragent.com agent will work with your existing NAT or Firewall setup. If computers on which you have installed the agent are not appearing in your dashboard, you may need to configure your firewall to allow traffic from the Paragent.com agent to our server. Each agent makes an outbound TCP connection to the server archon.paragent.com on port 6103. If you are having difficulty configuring your firewall, contact Paragent support with the name and version of your firewall, and we will assist you with determining the proper configuration.
-Managing Users
+
+== Managing Users ==
 
 Your Paragent.com account was created with a default Administrator account using your email address and a random password that you should change the first time you log into Paragent.com. You can access your account information through the Setup link in the upper right-hand menu on every screen.
 
