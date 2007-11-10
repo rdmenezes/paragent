@@ -1,0 +1,18 @@
+#summary Frequently Asked Questions
+
+= Introduction =
+
+Starting to put together a FAQ
+
+
+= Details =
+
+=== My Remote Desktop Window Is Too Small ===
+
+From a user: 
+ I found something else out.  After I got it working correctly I went about my day as usual.  
+ I then needed to remote to a  pc.  I clicked on remote and had the same trouble.  The remote 
+ window was way too small to use. I then right clicked the remote link and opened it in a new 
+ tab versus a new window.  I have tried this multiple times and it works.  I guess IE7 works 
+ better with less windows opened.  Or at least it works better with java. So if anyone else has 
+ this issue you might try telling them to open it in a new tab versus a new window.
