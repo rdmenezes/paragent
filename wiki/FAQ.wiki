@@ -154,3 +154,10 @@ From a user:
  tab versus a new window.  I have tried this multiple times and it works.  I guess IE7 works 
  better with less windows opened.  Or at least it works better with java. So if anyone else has 
  this issue you might try telling them to open it in a new tab versus a new window.
+
+=== Why do I get "Permission Denied" when I try to go to my local Paragent Install ===
+
+Depending on where you unpack your Paragent installation, apache may not have permission to traverse the directory hierarchy. This is usually the case if you install in a sub directory of your home directory. You will need to set the execute bit on your home directory, and any subdirectories.
+
+chmod o+x /home/username
+chmod o+x /home/username/paragent
