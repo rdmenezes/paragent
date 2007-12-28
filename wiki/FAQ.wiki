@@ -159,5 +159,7 @@ From a user:
 
 Depending on where you unpack your Paragent installation, apache may not have permission to traverse the directory hierarchy. This is usually the case if you install in a sub directory of your home directory. You will need to set the execute bit on your home directory, and any subdirectories.
 
+{{{
 chmod o+x /home/username
 chmod o+x /home/username/paragent
+}}}
