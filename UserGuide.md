@@ -1,0 +1,172 @@
+# Introduction #
+
+Paragent.com is a web-based desktop management service for hardware
+and software inventory, software license auditing, alerting and remote
+control.
+
+## Installing the Paragent.com Agent ##
+
+Paragent.com uses a small agent running on each monitored computer to collect inventory data and process management commands. When your Paragent.com account was created, a pre-configured installation file called Paragent.msi was generated. This installation file includes all the information needed by the agent to connect to the Paragent.com server under your account. You will need to run this installer on each computer either manually, or using a remote method such as a login script or through Microsoft's Active Directory.
+
+## NAT and Firewall Configuration ##
+
+In most cases, the Paragent.com agent will work with your existing NAT or Firewall setup. If computers on which you have installed the agent are not appearing in your dashboard, you may need to configure your firewall to allow traffic from the Paragent.com agent to our server. Each agent makes an outbound TCP connection to the server archon.paragent.com on port 6103. The remote desktop functionality uses port 6109.
+
+## Managing Users ##
+
+Your Paragent.com account was created with a default Administrator account using your email address and a random password that you should change the first time you log into Paragent.com. You can access your account information through the Setup link in the upper right-hand menu on every screen.
+
+In addition to changing your own password, you can also add additional users to the system. These users can be assigned one of two account levels:
+
+  * User: Users have only the rights assigned to them by the groups they are in. By default, they will only have permission to change notes on computers and assign tags to them.
+  * Administrator: Administrators have the right to perform all actions on all computers, as well as to create new users.
+
+User groups allow you to restrict certain permissions, and work in a manner similar to user groups in Windows or Unix. For example, using them, you can limit the administrator of a lab to being able to remote desktop only into that lab. User groups are also configured in the Setup section.
+Managing Computers
+
+Paragent.com uses tags to help you organize your computers. There are many places in Paragent.com where you can filter your selection based on tags you have assigned to computers. Initially, there will be no tags assigned to any computers.
+
+You can add tags to computers by viewing a computer’s details from the Computers page and expanding the computer you want to tag by clicking on the arrow next to the computer’s name. Use a space-separated list of names for all the tags you want to assign to a computer, and hit the save button. If you have already assigned tags, Paragent.com will provide an autocompletion list as you edit the Tags field.
+
+## FAQ ##
+
+### How does Paragent.com work? ###
+
+Paragent.com uses a small agent running on each monitored computer to
+collect inventory data and process management commands and communicate
+with the Paragent.com server. When each Paragent.com account is
+created a pre-configured installation file is generated. This
+installation file includes all the information needed by the agent to
+securely connect to the Paragent.com server under the new account. The
+Paragent.com agent makes an encrypted outbound connection to the
+Paragent.com server, verifies that the server has the right
+credentials, and begins monitoring the local host.
+
+Because the Paragent.com agent only makes outbound connections, in
+most cases it will work with existing NAT or Firewall setups. In some
+cases, you may need to configure your firewall to allow traffic from
+the Paragent.com agent to our server. Each agent makes an outbound TCP
+connection to the server archon.paragent.com on port 6103. If you are
+having difficulty configuring your firewall, contact
+support@paragent.com with the name and version of your firewall, and
+we will assist you with determining the proper configuration.
+
+### Why an agent? ###
+
+One of the first questions we are often asked is why Paragent.com uses
+an agent. Many services tout themselves as being "Agent-less." While
+we considered this approach, we believe that an agent-based solution
+provides our customers a much more scalable, consistent, flexible and
+secure experience.
+
+Agent-less solutions require some centralized server to poll each
+computer you want to monitor. As the number of computers and alerts
+you want to monitor increases, the amount of network traffic increases
+as well. Because each agent monitors its computer locally, there is no
+need for a server to constantly poll each machine. This means less
+network traffic, with much more responsive alerts. Using an agent
+provides much better scalability.
+
+Agent-less solutions are also dependent on services already available
+on a computer. For Microsoft's Windows operating system, this means
+Windows Management Instrumentation (WMI)--a management API that is
+inconsistent and sometimes broken across the various version of
+Windows in operation (2000, XP, Vista, etc.). The options become even
+more complex when additional operating systems are thrown into the mix
+where WMI is not even an option. Using an agent allows Paragent.com to
+provide consistent results for a variety of platforms.
+
+In addition to being limited to management interfaces available on a
+computer, agent-less solutions are also dependent on the features
+available through those interfaces. Paragent.com's agent allows us to
+provide a much more robust and flexible suite of remote management
+tools, including shutdown and restart, license key extraction and
+remote desktop support.
+
+Finally, agent-less solutions require any management server to send
+requests to your computers. For a hosted service like Paragent.com,
+this would require anyone wanting to use our service to open their
+networks to incoming network requests, creating a potential security
+hole. Paragent.com is designed to require no such exposure by limiting
+all network connections outbound to our servers. Using an agent is
+more secure.
+
+The main downside to an agent-based solution is the fact that each
+computer you want to monitor requires an agent to be installed. We
+have worked hard to make this as easy as possible by limiting the
+amount of configuration information kept by each agent, and
+integrating automatic background updates. This means you can push a
+single installer using login scripts, or Group Policy Objects (GPO),
+and once an agent is installed, you don't have to worry about it
+again.
+
+### How big is the agent? ###
+
+With an agent running on each computer a valid question is how much
+impact will the additional program have on system performance. The
+Paragent.com agent is written in C++ to be as lean as possible, and
+has minimum impact on memory, processor and networking resources.
+
+#### Memory footprint ####
+
+The agent's in-memory footprint is approximately 6MB, including all
+support libraries such as compression and encryption. The Paragent.com
+agent comes in a 1.6MB installation file, and expands to approximately
+3MB on disk.
+
+#### Processor usage ####
+
+The Paragent.com agent requires minimal processor resources when
+running. In most cases, there is no measurable processor usage by the
+agent. There are certain times when the agent will use some processor.
+This is primarily during startup, when the agent is connecting to the
+server, as well as periodic checks for alert triggers through
+operating system interfaces such as WMI. The agent shows a temporary
+2-3% CPU usage when these activities are taking place.
+
+#### Network traffic ####
+
+The Paragent.com agent is designed to minimize network traffic. The
+primary network traffic impact occurs when the agent first connects,
+and reports the system's current status to the server. This is
+typically a few kilobytes of traffic. Because the agent runs locally
+on the machine, there is no polling necessary for alerts, and
+therefore no network activity. The agent does send back a periodic
+heartbeat a few bytes in size every five minutes to let the server
+know there are no network problems.
+
+### How secure is Paragent.com? ###
+
+Paragent.com's agent is designed to operate safely and securely across
+the Internet. First, all connections are made from the agent to the
+server. The agent is not capable of accepting any inbound connections.
+This eliminates the possibility that an attacker can send rogue
+commands to the agent, or take advantage of security weaknesses at the
+application or operating system levels. Second, the agent verifies it
+is talking to the right servers using well established public key
+cryptography techniques--the same techniques that secure all credit
+card transactions over the Internet. This ensures that the agent is
+not susceptible to a "man-in-the-middle" attack, where an attacker
+attempts to impersonate the Paragent.com servers. Once the connection
+is established, all communication is encrypted using 2,048 bit keys
+and the Advanced Encryption Standard (AES) algorithm. Additional
+security precautions include the fact that Paragent.com does not store
+any plain-text passwords on its systems, and our team does not know,
+and is unable to obtain, users' passwords. For this reason, we are
+unable to recover forgotten passwords, and in this situation, the
+password is reset to a randomly generated string. A Paragent.com
+employee will never ask you for your password. Paragent.com is
+committed to providing a safe and secure environment.
+
+
+### What ports do I need to open on my network? ###
+
+In most cases, the Paragent.com agent will work with your existing NAT or Firewall setup. If computers on which you have installed the agent are not appearing in your dashboard, you may need to configure your firewall to allow traffic from the Paragent.com agent to our server. Each agent makes an outbound TCP connection to the server `archon.paragent.com` on port `6103`. If you are having difficulty configuring your firewall, contact Paragent support with the name and version of your firewall, and we will assist you with determining the proper configuration.
+
+For the remote desktop component, you will also need to open port `6109`.
+
+### What are tags? ###
+
+Tags enable you to quickly and easily group computers together. For example, you could tag all of the laptops in your company with a **laptop** tag, and all of the computers belonging to your sales department with a **sales** tag. Later, you can filter the list of computers to only show the laptops belonging to your sales team.
+
+Tags are used throughout the application to make it easy to select groups of computers to work with. A computer can have an unlimited number of tags associated with it.

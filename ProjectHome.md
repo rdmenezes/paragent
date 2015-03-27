@@ -1,0 +1,3 @@
+Paragent is a web-based tool for IT administrators that provides a unified service for hardware and software inventory, alerting, remote desktop and help desk. Paragent delivers these tools in an easy-to-use interface, with one-click access, and site-wide built-in advanced search capabilities.
+
+Paragent is a combination of applications, including Lisp-based servers collecting data, C++ agents on the client machines, and Java tools for the remote desktop component. Paragent runs on Linux servers, and supports Windows clients at the current time.
